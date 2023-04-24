@@ -1,0 +1,110 @@
+" Definir o prefixo do NERDTree como `ctrl + n`
+let g:NERDTreeMapActivateNode = "<c-n>"
+
+" Definir o prefixo do Tagbar como `ctrl + t`
+let g:tagbar_map_toggle = "<c-t>"
+
+" Definir o prefixo do UltiSnips como `<tab>`
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+" Configurar o auto-indent
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+" Ativar a numeração das linhas
+set number
+
+" Ativar o syntax highlighting
+syntax on
+
+" Plugins de gerenciamento de plugins
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
+Plugin 'vim-python/python-syntax'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'dracula/vim', {'as': 'dracula'}
+Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+call vundle#end()
+filetype plugin indent on
+
+" Configurações específicas de plugins
+" Plugin vim-surround
+" Definir o prefixo do plugin vim-surround como `S`
+map S <Plug>VSurround
+
+" Plugin vim-commentary
+" Definir o prefixo do plugin vim-commentary como `gc`
+map gc <Plug>Commentary
+
+" Plugin NERDTree
+" Definir o prefixo do NERDTree como `ctrl + n`
+map <c-n> :NERDTreeToggle<CR>
+let g:NERDTreeMapActivateNode = "<c-n>"
+
+" Plugin Tagbar
+" Definir o prefixo do Tagbar como `ctrl + t`
+map <c-t> :TagbarToggle<CR>
+let g:tagbar_map_toggle = "<c-t>"
+
+" Plugin UltiSnips
+" Definir o prefixo do UltiSnips como `<tab>`
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+" Plugin syntastic
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+
+" Configuração do tema gruvbox
+set background=dark
+"colorscheme gruvbox
+"set background=dark
+"colorscheme dracula
+
+" Configurar plugin nerdtree para usar ícones Nerd
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeIndicatorMapCustom = {
+        \ "Modified"  : "✹",
+        \ "Staged"    : "✚",
+        \ "Untracked" : "✭",
+        \ "Renamed"   : "➜",
+        \ "Unmerged"  : "═",
+        \ "Deleted"   : "✖",
+        \ "Dirty"     : "✗",
+        \ "Clean"     : "✔︎",
+        \ 'Ignored'   : '☒',
+        \ "Unknown"   : "?"
+        \ }
+
+" Configurar plugin vim-devicons para usar ícones Nerd
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsUnicodeGlyphLeaveUnmatched = 1
+
+" Configurar a fonte usada para ícones Nerd
+set guifont=hack
+" Configurações do plugin Airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'gruvbox'
